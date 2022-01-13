@@ -1,0 +1,124 @@
+Station
+St no   St name
+1,'Kempegowda'
+2,'Mahalakshmi Layout'
+3,'Srirampura'
+4,'Mantri Mall'
+5,'Orion Mall'
+6,'Rajajinagar'
+7,'M G Road'
+8,'Lalbagh'
+9,'Peenya'
+10,'K R Market'
+
+1: ['Srirampura', 'Mantri Mall', 'Kempegowda', 'M G Road', 'Peenya'],
+2 : ['Mahalakshmi Layout', 'Mantri Mall', 'Kempegowda', 'Lalbagh', 'K R Market'],
+3 : ['Orion Mall', 'Kempegowda', 'Rajajinagar', 'M G Road'],
+4 : ['Peenya',  'M G Road', 'Kempegowda', 'Mantri Mall', 'Srirampura'],
+5 : ['K R Market', 'Lalbagh','Kempegowda','Mantri Mall','Mahalakshmi Layout'],
+6 : ['M G Road', 'Rajajinagar', 'Kempegowda','Orion Mall'],
+
+Train
+Tr no   Tr name     Destination
+1,'Hyper','Peenya'
+2,'Ninja','K R Market'
+3,'Phantom','M G Road'
+4,'Shatter','Srirampura'
+5,'Everfast','Mahalakshmi Layout'
+6,'Bullet','Orion Mall'
+
+arrives_at
+Tr no   St no   arrival_time    departure_time
+1,3,'10:00','10:10'
+1,4,'11:00','11:10'
+1,1,'12:00','12: 30'
+1,7,'14:00','14:10'
+1,9,'17:00','00:00'
+
+2,2,'9:00','11:10'
+2,4,'12:00','12:10'
+2,1,'14:00','14:30'
+2,8,'16:00','16:10'
+2,10,'18:00','00:00'
+
+3,5,'11:00','11:10'
+3,1,'13:00','13:30'
+3,6,'14:00','14:10'
+3,7,'4:00','00:00'
+
+4,9,'8:00','8:10'
+4,7,'9:00','9:10'
+4,1,'11:00','11:30'
+4,4,'13:00','13:10'
+4,3,'15:00','00:00'
+
+5,10'09:00','9:10'
+5,8,'10:00','10:10'
+5,1,'12:00','12:30'
+5,4,'13:30','13:40'
+5,2,'15:00','00:00'
+
+6,7,'12:00','12:10'
+6,6,'13:00','13:10'
+6,1,'14:00','14:30'
+6,5,'16:00','00:00'
+
+train_seats
+seat no user_id train_no
+
+INSERT INTO train('trainname', 'trainname', 'destination') VALUES(?,?,?)
+
+db.execute("INSERT INTO train('trainname', 'trainname', 'destination') VALUES(?,?,?)", 1,'Hyper','Peenya')
+db.execute("INSERT INTO train('trainname', 'trainname', 'destination') VALUES(?,?,?)", 2,'Ninja','K R Market')
+db.execute("INSERT INTO train('trainname', 'trainname', 'destination') VALUES(?,?,?)", 3,'Phantom','M G Road')
+db.execute("INSERT INTO train('trainname', 'trainname', 'destination') VALUES(?,?,?)", 4,'Shatter','Srirampura')
+db.execute("INSERT INTO train('trainname', 'trainname', 'destination') VALUES(?,?,?)", 5,'Everfast','Mahalakshmi Layout')
+db.execute("INSERT INTO train('trainname', 'trainname', 'destination') VALUES(?,?,?)", 6,'Bullet','Orion Mall')
+
+INSERT INTO station('stationno', 'stationname') VALUES(1,'Kempegowda');
+INSERT INTO station('stationno', 'stationname') VALUES(2,'Mahalakshmi Layout');
+INSERT INTO station('stationno', 'stationname') VALUES(3,'Srirampura');
+INSERT INTO station('stationno', 'stationname') VALUES(4,'Mantri Mall');
+INSERT INTO station('stationno', 'stationname') VALUES(5,'Orion Mall');
+INSERT INTO station('stationno', 'stationname') VALUES(6,'Rajajinagar');
+INSERT INTO station('stationno', 'stationname') VALUES(7,'M G Road');
+INSERT INTO station('stationno', 'stationname') VALUES(8,'Lalbagh');
+INSERT INTO station('stationno', 'stationname') VALUES(9,'Peenya');
+INSERT INTO station('stationno', 'stationname') VALUES(10,'K R Market');
+
+CREATE TABLE arrives_at(trainno int, stationno int, arrivaltime time, departuretime time, PRIMARY KEY(trainno, stationno), FOREIGN key(trainno) REFERENCES train(trainno), FOREIGN KEY(stationno) station(stationno));
+INSERT INTO arrives_at(trainno, stationno, arrivaltime, departuretime) VALUES();
+
+INSERT INTO arrives_at(trainno, stationno, arrivaltime, departuretime) VALUES(1,3,'10:00','10:10');
+INSERT INTO arrives_at(trainno, stationno, arrivaltime, departuretime) VALUES(1,4,'11:00','11:10');
+INSERT INTO arrives_at(trainno, stationno, arrivaltime, departuretime) VALUES(1,1,'12:00','12: 30');
+INSERT INTO arrives_at(trainno, stationno, arrivaltime, departuretime) VALUES(1,7,'14:00','14:10');
+INSERT INTO arrives_at(trainno, stationno, arrivaltime, departuretime) VALUES(1,9,'17:00','00:00');
+
+INSERT INTO arrives_at(trainno, stationno, arrivaltime, departuretime) VALUES(2,2,'9:00','11:10');
+INSERT INTO arrives_at(trainno, stationno, arrivaltime, departuretime) VALUES(2,4,'12:00','12:10');
+INSERT INTO arrives_at(trainno, stationno, arrivaltime, departuretime) VALUES(2,1,'14:00','14:30');
+INSERT INTO arrives_at(trainno, stationno, arrivaltime, departuretime) VALUES(2,8,'16:00','16:10');
+INSERT INTO arrives_at(trainno, stationno, arrivaltime, departuretime) VALUES(2,10,'18:00','00:00');
+
+INSERT INTO arrives_at(trainno, stationno, arrivaltime, departuretime) VALUES(3,5,'11:00','11:10');
+INSERT INTO arrives_at(trainno, stationno, arrivaltime, departuretime) VALUES(3,1,'13:00','13:30');
+INSERT INTO arrives_at(trainno, stationno, arrivaltime, departuretime) VALUES(3,6,'14:00','14:10');
+INSERT INTO arrives_at(trainno, stationno, arrivaltime, departuretime) VALUES(3,7,'4:00','00:00');
+
+INSERT INTO arrives_at(trainno, stationno, arrivaltime, departuretime) VALUES(4,9,'8:00','8:10');
+INSERT INTO arrives_at(trainno, stationno, arrivaltime, departuretime) VALUES(4,7,'9:00','9:10');
+INSERT INTO arrives_at(trainno, stationno, arrivaltime, departuretime) VALUES(4,1,'11:00','11:30');
+INSERT INTO arrives_at(trainno, stationno, arrivaltime, departuretime) VALUES(4,4,'13:00','13:10');
+INSERT INTO arrives_at(trainno, stationno, arrivaltime, departuretime) VALUES(4,3,'15:00','00:00');
+
+INSERT INTO arrives_at(trainno, stationno, arrivaltime, departuretime) VALUES(5,1,'09:00','9:10');
+INSERT INTO arrives_at(trainno, stationno, arrivaltime, departuretime) VALUES(5,8,'10:00','10:10');
+INSERT INTO arrives_at(trainno, stationno, arrivaltime, departuretime) VALUES(5,1,'12:00','12:30');
+INSERT INTO arrives_at(trainno, stationno, arrivaltime, departuretime) VALUES(5,4,'13:30','13:40');
+INSERT INTO arrives_at(trainno, stationno, arrivaltime, departuretime) VALUES(5,2,'15:00','00:00');
+
+INSERT INTO arrives_at(trainno, stationno, arrivaltime, departuretime) VALUES(6,7,'12:00','12:10');
+INSERT INTO arrives_at(trainno, stationno, arrivaltime, departuretime) VALUES(6,6,'13:00','13:10');
+INSERT INTO arrives_at(trainno, stationno, arrivaltime, departuretime) VALUES(6,1,'14:00','14:30');
+INSERT INTO arrives_at(trainno, stationno, arrivaltime, departuretime) VALUES(6,5,'16:00','00:00');

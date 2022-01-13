@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block body %}
+   <table class="disp">
+       <tr>
+           <th>From</th>
+           <th>To</th>
+           <th>Train</th>
+           <th>No of Passengers</th>
+           <th>Tickets</th>
+           <th>Balance</th>
+       </tr>
+
+           <tr>
+                <td>{{  row[0]["stationentry"] }}</td>
+                <td>{{  row[0]["stationexit"] }}</td>
+                <td>{{  train }}</td>
+                <td>{{  row[0]["passenger"] }}</td>
+                <td>
+                   {% for seat in seats%}
+                       {{ seat }}
+                   {% endfor%}
+                </td>
+                <td>{{ row[0]["balance"] }}</td>
+           </tr>
+
+   </table>
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <script src="/static/book.js" defer></script>
+    <form action="/book" method="POST">
+        <h2>Book Tickets</h2>
+        <h3>Train Name</h3>
+         <select name="train" class="train" required>
+            <option disabled selected >Train</option>
+            {% for train in trains %}
+                <option name="{{ train["trainno"] }}">{{ train["trainname"] }}</option>
+            {% endfor %}
+        </select>
+
+
+        <h3 id="startpoint" hidden="">Start Point</h3>
+        <select hidden name="start" class="start" required>
+            <option disabled selected >Start</option>
+            {% for t in test %}
+                {% set i = 0 %}
+                {% for location in test[t] %}
+                    <option class= "starts" hidden svalue="{{ t }}" dvalue="{{ test[t].index(location)  }}">{{ location}}</option>
+                {% endfor %}
+            {% endfor %}
+        </select>
+
+        <h3 id="endpoint" hidden="">End</h3>
+         <select hidden name="end" class="end" required>
+            <option hidden selected >Destination</option>
+            {% for t in test %}
+                {% set i = 0 %}
+                {% for location in test[t] %}
+                    <option class= "ends" hidden svalue="{{ t }}" dvalue="{{ test[t].index(location)  }}">{{ location}}</option>
+                {% endfor %}
+            {% endfor %}
+        </select>
+
+        <input id= "submit" type="submit" value="Book">
+    </form>
+{% endblock %}

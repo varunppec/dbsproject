@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <form action="/register" method="POST" autofill="off">
+        <h2>Register</h2>
+        <div class="registerid" >
+            <h3>User ID</h3>
+            <input name="userid" placeholder="User ID" type="text" autofocus>
+        </div>
+        <div class="registername">
+            <h3>User Name</h3>
+            <input name="username" placeholder="User Name" type="text">
+        </div>
+        <div class="registerpass">
+            <h3>Password</h3>
+            <input name="password" placeholder="Password" type="password">
+        </div>
+
+        <input id="submit" type="submit" value="Register">
+    </form>
+
+{% endblock %}
